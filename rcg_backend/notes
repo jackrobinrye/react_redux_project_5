@@ -1,0 +1,24 @@
+player
+has_many :characters
+-name
+-age
+-gender
+
+character 
+belongs_to :player
+-player_id
+-campaign
+-name
+-age
+-gender
+-race
+-cclass
+-background
+-alignment
+-strength
+-dexterity
+-constitution
+-intelligence
+-wisdom
+-charisma
+-bio(?)
