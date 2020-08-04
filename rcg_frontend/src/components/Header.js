@@ -3,7 +3,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Nav from 'react-bootstrap/Nav'
 
-class Home extends Component {
+class Header extends Component {
     constructor() {
         super()
     }
@@ -27,4 +27,4 @@ class Home extends Component {
     }
 }
 
-export default Home
+export default Header

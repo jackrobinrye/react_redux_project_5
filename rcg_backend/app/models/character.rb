@@ -1,5 +1,6 @@
 class Character < ApplicationRecord
     belongs_to :player
+    validates :player_id, presence: true
 
     def self.make_new(player_id) 
         rng = RandomNameGenerator.new
