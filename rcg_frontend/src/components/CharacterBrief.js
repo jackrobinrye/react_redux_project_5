@@ -8,7 +8,7 @@ const CharacterBrief = (props) => {
     const d = props.data
 
     return (
-        <div className={props.data.name}>
+        <div character-id={props.data.id} character-name={props.data.name}>
             <Table striped bordered variant="dark">
                 <thead>
                     <tr>
