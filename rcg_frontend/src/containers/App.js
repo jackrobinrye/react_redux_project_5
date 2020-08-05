@@ -4,7 +4,7 @@ import {
   Route
 } from 'react-router-dom';
 // import './App.css';
-import Home from '../components/Home';
+import Home from './Home';
 
 class App extends Component {
 
@@ -12,6 +12,8 @@ class App extends Component {
     return (
       <Router>
         <div>
+          {/* {console.log(this.state)} */}
+          
           <Route exact path="/" render={() => <Home />} 
               
             />
