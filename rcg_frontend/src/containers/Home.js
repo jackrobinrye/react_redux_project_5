@@ -23,7 +23,7 @@ class Home extends Component {
     render() {
         if (this.state.players != null) {
             return <div className="home-page">
-                <Header />
+                <Header players={this.state.players}/>
                 <ListGroup variant="flush">
                     {this.state.players.map(player => (<Player data={player.attributes} />))}
                 </ListGroup>
