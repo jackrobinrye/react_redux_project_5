@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Table from 'react-bootstrap/Table'
 
 const Character = (props) => {
-    console.log(props)
+    // console.log(props)
     const date = new Date(props.data.created_at);
     const d = props.data
     return (

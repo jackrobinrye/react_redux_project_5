@@ -3,10 +3,8 @@ import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Nav from 'react-bootstrap/Nav'
 
+// Make functional component? 
 class Header extends Component {
-    constructor() {
-        super()
-    }
 
     render() {
         return <Navbar bg="light" expand="lg">
