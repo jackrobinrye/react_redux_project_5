@@ -9,4 +9,9 @@ class Api::V1::CharactersController < ApplicationController
         end 
     end 
 
+    # def show 
+    #     character = Character.find(params[:characterId])
+    #     render json: character
+    # end
+
 end
