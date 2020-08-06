@@ -1,5 +1,10 @@
 class Api::V1::CharactersController < ApplicationController
 
+    def index
+        characters = Character.all
+        render json: characters 
+    end
+
     def create
         character = Character.make_new(params[:player_id])
         if character.save 

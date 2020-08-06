@@ -3,6 +3,8 @@ import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Nav from 'react-bootstrap/Nav'
  
+
+// GET HEADER TO WORK OUTSIDE OF HOME PAGE
 const Header = (props) => {
     console.log(props.players)
     return <Navbar bg="light" expand="lg">

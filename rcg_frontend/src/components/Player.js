@@ -1,6 +1,7 @@
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup'
 import CharacterBrief from './CharacterBrief'
+import Character from './Character'
 import AddCharacterButton from './AddCharacterButton'
 
 const Player = (props) => {
