@@ -3,6 +3,8 @@ import Table from 'react-bootstrap/Table'
 import Carousel from 'react-bootstrap/Carousel'
 import CharacterBrief from './CharacterBrief';
 import Header from '../components/Header';
+import Tabs from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
 
 
 const Character = (props) => {
@@ -12,17 +14,11 @@ const Character = (props) => {
 
     return (
         <div>
-            {/* <Header /> */}
-            {console.log(props)}
-            <Carousel hover={true} interval={null}>
-                <Carousel.Item >
+            <Tabs defaultActiveKey="summary" id="uncontrolled-tab-example">
+                <Tab eventKey="summary" title="Summary">
                     <CharacterBrief data={d}/>
-                    {/* <Carousel.Caption> */}
-                    {/* <h3>Character Gist</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
-                    {/* </Carousel.Caption> */}
-                </Carousel.Item>
-                <Carousel.Item>
+                </Tab>
+                <Tab eventKey="stats" title="Stats">
                     <Table striped bordered variant="dark">
                         <tbody>
                             <tr>
@@ -37,6 +33,29 @@ const Character = (props) => {
                             </tr>
                         </tbody>
                     </Table>
+                </Tab>
+                <Tab eventKey="info" title="Info">
+                    <CharacterBrief data={d}/>
+                </Tab>
+            </Tabs>
+
+
+
+
+
+        
+            {/* <Header />
+            {console.log(props)}
+            <Carousel hover={true} interval={null}>
+                <Carousel.Item >
+                    <CharacterBrief data={d}/> */}
+                    {/* <Carousel.Caption> */}
+                    {/* <h3>Character Gist</h3>
+                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
+                    {/* </Carousel.Caption> */}
+                {/* </Carousel.Item>
+                <Carousel.Item>
+                    
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
@@ -50,7 +69,7 @@ const Character = (props) => {
                     <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
-            </Carousel>
+            </Carousel> */}
         </div>
     )
 

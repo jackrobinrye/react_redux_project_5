@@ -37,10 +37,6 @@ class App extends Component {
             return <Route exact path={`/characters/${character.id}`} render={() => <Character data={[character]} />} />
           })}
           {/* <Route exact path={`/characters/:characterId`} render={() => <Character />} /> */}
-
-
-          {/* <Route path={`${match.url}/:movieId`} render={routerProps => <MovieShow {...routerProps} movies={movies} /> }/> */}
-          {/* <Route path='/movies' render={routerProps => <MoviesPage {...routerProps} movies={this.state.movies}/>} /> */}
         </div>
       </Router>
     );
