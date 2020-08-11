@@ -6,7 +6,7 @@ import AddCharacterButton from './AddCharacterButton'
 
 const Player = (props) => {
     return (
-        <ListGroup.Item player-name={props.data.name}>
+        <ListGroup.Item player-name={props.data.name} player-id={props.data.id}>
             <h4>{props.data.name} ({props.data.age}, {props.data.gender})</h4>
             {props.data.characters.map(character => <CharacterBrief data={character} />)}
             < AddCharacterButton />

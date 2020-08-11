@@ -42,7 +42,7 @@ export const createPlayer = (name, age, gender) => {
         }
 }
 
-export const createCharacter = (playerId) => {
+export const createCharacter = (playerName) => {
     const requestOptions = {
         method: "POST",
         headers: {
@@ -50,15 +50,15 @@ export const createCharacter = (playerId) => {
             "Accept": "application/json"
         },
         body: JSON.stringify({
-            player_id: playerId
+            player_name: playerName
         })
     }
     return (dispatch) => {
+        console.log("hello")
         fetch("http://localhost:3000/api/v1/characters", requestOptions)
             .then(response => response.json())
             .then(players => {
                 dispatch({type: "UPDATE_PLAYERS", players: players.data})
-                history.push("/")
             })
         }
 }

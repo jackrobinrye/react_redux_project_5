@@ -6,7 +6,8 @@ class Api::V1::CharactersController < ApplicationController
     end
 
     def create
-        character = Character.make_new(params[:player_id])
+        player_id = Player.all.find_by(name: params[:player_name]).id
+        character = Character.make_new(player_id)
         if character.save 
             players = Player.all
             render json: PlayerSerializer.new(players), status: :accepted

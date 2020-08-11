@@ -19,7 +19,6 @@ class NewPlayer extends Component {
     }
 
     componentDidMount = () => {
-        console.log("component mounting")
         this.props.fetchPlayers()
     }
 

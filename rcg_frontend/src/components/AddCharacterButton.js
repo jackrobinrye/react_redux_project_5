@@ -1,12 +1,18 @@
 import React, {Component} from 'react';
 import Button from 'react-bootstrap/Button'
+import {createCharacter} from '../service/ApiCalls'
+import { connect } from 'react-redux';
 
-export default class AddCharacterButton extends Component {
+
+
+class AddCharacterButton extends Component {
 
     handleClick = (event) => {
         event.preventDefault()
-        let name = event.target.parentElement.getAttribute('player-name')
-        console.log(name)
+        this.props.createCharacter(event.target.parentElement.getAttribute('player-name'))
+        // console.log(event.target.parentElement)
+        // this.props.createCharacter(event.target.parentElement.getAttribute('player-id'))
+        // let name = event.target.parentElement.getAttribute('player-name')
     }
 
     render() {
@@ -16,4 +22,15 @@ export default class AddCharacterButton extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {}
+  }
+   
+const mapDispatchToProps = dispatch => {
+    return {
+        createCharacter: (playerName) => dispatch(createCharacter(playerName))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddCharacterButton)
 
