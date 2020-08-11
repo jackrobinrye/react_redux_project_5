@@ -8,7 +8,8 @@ class Api::V1::PlayersController < ApplicationController
     def create
         player = Player.new(player_params)
         if player.save 
-            render json: player, status: :accepted
+            players = Player.all
+            render json: PlayerSerializer.new(players), status: :accepted
         else 
             render json: {errors: player.errors.full_messages}, status: :unprocessable_entity
         end 

@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import { connect } from 'react-redux';
-import {fetchPlayers} from '../service/ApiCalls'
+import {fetchPlayers, createPlayer} from '../service/ApiCalls'
 
 
 
@@ -35,10 +35,10 @@ class NewPlayer extends Component {
         this.setState({...this.state, gender: e.target.value})
     }
 
-    notHandleLogin = (event) => {
+    handleSubmit = (event) => {
         event.preventDefault()
         if(this.state.name !== "" && this.state.age !== "" && this.state.gender !== "Choose...") {
-        //   this.props.handleLogin({username: this.state.username, password: this.state.password})
+            this.props.createPlayer(this.state.name, this.state.age, this.state.gender)
         }
       }
 
@@ -46,7 +46,7 @@ class NewPlayer extends Component {
         return (
             <div>
                 <Header players={this.props.players}/>
-                <Form style={{padding: "25px"}} onSubmit={this.notHandleLogin}>
+                <Form style={{padding: "25px"}} onSubmit={this.handleSubmit}>
                     <Form.Group>
                         <Form.Row>
                             <Form.Label column="lg" lg={2}>
@@ -80,7 +80,7 @@ class NewPlayer extends Component {
                             <option>Polygender</option>
                         </Form.Control>
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" type="submit" onClick={this.handleSubmit}>
                         Submit
                     </Button>
                 </Form>
@@ -95,7 +95,8 @@ const mapStateToProps = state => {
    
 const mapDispatchToProps = dispatch => {
     return {
-        fetchPlayers: () => dispatch(fetchPlayers())
+        fetchPlayers: () => dispatch(fetchPlayers()),
+        createPlayer: (name, age, gender) => dispatch(createPlayer(name, age, gender))
     }
 }
 
