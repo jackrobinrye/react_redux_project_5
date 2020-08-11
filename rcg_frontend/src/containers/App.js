@@ -29,7 +29,6 @@ class App extends Component {
       <Router>
         <div>
 
-          {/* {console.log(this.state)} */}
           
           <Route exact path="/" render={() => <Home />} />
           <Route exact path="/new-player" render={() => <NewPlayer />} />

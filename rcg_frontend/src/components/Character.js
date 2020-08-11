@@ -10,7 +10,6 @@ import Tab from 'react-bootstrap/Tab'
 const Character = (props) => {
 
     const d = props.data[0]
-    console.log(props)
 
     return (
         <div>
@@ -45,7 +44,6 @@ const Character = (props) => {
 
         
             {/* <Header />
-            {console.log(props)}
             <Carousel hover={true} interval={null}>
                 <Carousel.Item >
                     <CharacterBrief data={d}/> */}

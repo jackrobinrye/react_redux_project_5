@@ -3,8 +3,12 @@ import Header from '../components/Header';
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
+import { connect } from 'react-redux';
+import {fetchPlayers} from '../service/ApiCalls'
 
-export default class NewPlayer extends Component {
+
+
+class NewPlayer extends Component {
     constructor() {
         super()
         this.state = {
@@ -14,25 +18,26 @@ export default class NewPlayer extends Component {
         }
     }
 
+    componentDidMount = () => {
+        console.log("component mounting")
+        this.props.fetchPlayers()
+    }
+
     nameChange = (e) => {
         this.setState({...this.state, name: e.target.value})
-        // console.log(this.state)
     }
     
     ageChange = (e) => {
         this.setState({...this.state, age: e.target.value})
-        // console.log(this.state)
     }
 
     genderChange = (e) => {
         this.setState({...this.state, gender: e.target.value})
-        // console.log(this.state)
     }
 
     notHandleLogin = (event) => {
         event.preventDefault()
         if(this.state.name !== "" && this.state.age !== "" && this.state.gender !== "Choose...") {
-            console.log(this.state)
         //   this.props.handleLogin({username: this.state.username, password: this.state.password})
         }
       }
@@ -40,7 +45,7 @@ export default class NewPlayer extends Component {
     render() {
         return (
             <div>
-                <Header />
+                <Header players={this.props.players}/>
                 <Form style={{padding: "25px"}} onSubmit={this.notHandleLogin}>
                     <Form.Group>
                         <Form.Row>
@@ -83,3 +88,15 @@ export default class NewPlayer extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {players: state.players}
+  }
+   
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchPlayers: () => dispatch(fetchPlayers())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewPlayer)
