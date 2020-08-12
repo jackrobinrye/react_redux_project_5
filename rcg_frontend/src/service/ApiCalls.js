@@ -11,13 +11,17 @@ export const fetchPlayers = () => {
     }
 }
 
-export const fetchCharacters = () => {
-    fetch('http://localhost:3000/api/v1/characters')
-        .then(response => response.json())
-        .then(characters => 
-            {return characters}
-            )
+export const fetchCharacter = (characterId) => {
+    return (dispatch) => {
+        console.log("characterId in ApiCalls", characterId)
+        fetch(`http://localhost:3000/api/v1/characters/${characterId}`)
+            .then(response => response.json())
+            .then(character => 
+                dispatch({type: "GET_CHARACTER", character: character})
+                )
+    }
 }
+
 
 export const createPlayer = (name, age, gender) => {
     const requestOptions = {
@@ -54,7 +58,6 @@ export const createCharacter = (playerName) => {
         })
     }
     return (dispatch) => {
-        console.log("hello")
         fetch("http://localhost:3000/api/v1/characters", requestOptions)
             .then(response => response.json())
             .then(players => {

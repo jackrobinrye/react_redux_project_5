@@ -1,13 +1,11 @@
-import {fetchPlayers} from '../service/ApiCalls'
-
-
-export default function reducer(state = {players: []}, action) {
+export default function reducer(state = {players: [], character: {}}, action) {
     switch (action.type) {
   
-    //   case 'ADD_PLAYER':
-    //     return {
-    //       ...state, players: fetchPlayers()
-    //     }
+      case 'GET_CHARACTER':
+        console.log("action", action)
+        return {
+          ...state, character: action.character
+        }
   
       case 'UPDATE_PLAYERS':
         return {

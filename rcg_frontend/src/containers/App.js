@@ -6,7 +6,7 @@ import {
 // import './App.css';
 import Home from './Home';
 import NewPlayer from './NewPlayer';
-import Character from '../components/Character';
+import CharacterPage from './CharacterPage';
 
 class App extends Component {
 
@@ -33,7 +33,7 @@ class App extends Component {
           <Route exact path="/" render={() => <Home />} />
           <Route exact path="/new-player" render={() => <NewPlayer />} />
           {this.state.characters.map(character => {
-            return <Route exact path={`/characters/${character.id}`} render={() => <Character data={[character]} />} />
+            return <Route exact path={`/characters/${character.id}`} render={() => <CharacterPage characterId={character.id} />} />
           })}
           {/* <Route exact path={`/characters/:characterId`} render={() => <Character />} /> */}
         </div>
