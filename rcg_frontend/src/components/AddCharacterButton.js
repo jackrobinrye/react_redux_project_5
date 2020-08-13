@@ -1,24 +1,51 @@
 import React, {Component} from 'react';
-import Button from 'react-bootstrap/Button'
-import {createCharacter} from '../service/ApiCalls'
+import Button from 'react-bootstrap/Button';
+import {createCharacter} from '../service/ApiCalls';
 import { connect } from 'react-redux';
+import Form from 'react-bootstrap/Form'
 
 
 
 class AddCharacterButton extends Component {
 
-    handleClick = (event) => {
-        event.preventDefault()
-        this.props.createCharacter(event.target.parentElement.getAttribute('player-name'))
-        // console.log(event.target.parentElement)
-        // this.props.createCharacter(event.target.parentElement.getAttribute('player-id'))
-        // let name = event.target.parentElement.getAttribute('player-name')
+    constructor() {
+        super()
+        this.state = {
+            showForm: false,
+            campaign: ""
+        }
+    }
+
+    handleClick = (e) => {
+        e.preventDefault()
+        this.setState({showForm: true})
+    }
+
+    handleChange = (e) => {
+        this.setState({...this.state, campaign: e.target.value})
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+        const playerName = e.target.parentElement.parentElement.getAttribute('player-name')
+        this.props.createCharacter(playerName, this.state.campaign)
+        this.setState({...this.state, showForm: false})
     }
 
     render() {
-        return <Button variant="secondary" size="lg" block onClick={this.handleClick}> 
-            Add Random Character
-        </Button>
+        if (this.state.showForm === false) {
+            return <Button variant="secondary" size="lg" block onClick={this.handleClick}> 
+                Add Random Character
+            </Button>
+        }
+        else if (this.state.showForm === true) {
+            return (
+                <Form>
+                    <Form.Control size="lg" type="text" placeholder="Campaign Name" value={this.state.text} onChange={this.handleChange} />
+                    <Button variant="dark" type="submit" onClick={this.handleSubmit}>Submit</Button>
+                </Form>
+            )
+        }
     }
 }
 
@@ -28,7 +55,7 @@ const mapStateToProps = state => {
    
 const mapDispatchToProps = dispatch => {
     return {
-        createCharacter: (playerName) => dispatch(createCharacter(playerName))
+        createCharacter: (playerName, campaign) => dispatch(createCharacter(playerName, campaign))
     }
 }
 

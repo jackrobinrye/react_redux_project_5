@@ -2,7 +2,7 @@ class Character < ApplicationRecord
     belongs_to :player
     validates :player_id, presence: true
 
-    def self.make_new(player_id) 
+    def self.make_new(player_id, campaign) 
         rng = RandomNameGenerator.new
 
         campaigns = ["Princes Of The Apocalypse", "Lost Mine Of Phandelver", "Tyranny Of Dragons", "Tales From The Yawning Portal", "The Rod Of Seven Parts", "Temple Of Elemental Evil", "Tomb Of Annihilation", "Out Of The Abyss"]
@@ -11,7 +11,7 @@ class Character < ApplicationRecord
 
         self.new(
             player_id: player_id, 
-            campaign: campaigns.sample,
+            campaign: campaign,
             name: "#{rng.compose} #{rng.compose}", 
             gender: Faker::Gender.type, 
             age: rand(10..200), 

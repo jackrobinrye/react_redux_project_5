@@ -46,7 +46,8 @@ export const createPlayer = (name, age, gender) => {
         }
 }
 
-export const createCharacter = (playerName) => {
+export const createCharacter = (playerName, campaign) => {
+    console.log(campaign)
     const requestOptions = {
         method: "POST",
         headers: {
@@ -54,7 +55,8 @@ export const createCharacter = (playerName) => {
             "Accept": "application/json"
         },
         body: JSON.stringify({
-            player_name: playerName
+            player_name: playerName,
+            campaign: campaign
         })
     }
     return (dispatch) => {
