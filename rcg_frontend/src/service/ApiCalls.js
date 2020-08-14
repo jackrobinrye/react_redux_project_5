@@ -11,9 +11,19 @@ export const fetchPlayers = () => {
     }
 }
 
+export const fetchPlayer = (playerId) => {
+    return (dispatch) => {
+        fetch(`http://localhost:3000/api/v1/players/${playerId}`)
+            .then(response => response.json())
+            .then(player => {
+                // console.log(player.data)
+                dispatch({type: "GET_PLAYER", player: player.data})
+            })
+    }
+}
+
 export const fetchCharacter = (characterId) => {
     return (dispatch) => {
-        console.log("characterId in ApiCalls", characterId)
         fetch(`http://localhost:3000/api/v1/characters/${characterId}`)
             .then(response => response.json())
             .then(character => 
@@ -47,7 +57,6 @@ export const createPlayer = (name, age, gender) => {
 }
 
 export const createCharacter = (playerName, campaign) => {
-    console.log(campaign)
     const requestOptions = {
         method: "POST",
         headers: {

@@ -7,6 +7,7 @@ import {
 import Home from './Home';
 import NewPlayer from './NewPlayer';
 import CharacterPage from './CharacterPage';
+import PlayerPage from './PlayerPage';
 
 class App extends Component {
 
@@ -35,7 +36,7 @@ class App extends Component {
           {this.state.characters.map(character => {
             return <Route exact path={`/characters/${character.id}`} render={() => <CharacterPage characterId={character.id} />} />
           })}
-          {/* <Route exact path={`/characters/:characterId`} render={() => <Character />} /> */}
+          <Route exact path={`/players/:playerId`} component={PlayerPage} />
         </div>
       </Router>
     );

@@ -14,13 +14,11 @@ class CharacterPage extends Component {
 
     componentDidMount = () => {
         this.props.fetchPlayers()
-        console.log("characterId in CharacterPage", this.props.characterId)
         this.props.fetchCharacter(this.props.characterId)
     }
     
     render() {
         if (this.props.players !== undefined && this.props.players !== null && this.props.players.length !== null && this.props.players.length > 0 ) {
-            console.log(this.props)
             const d = this.props.character
             return <div>    
                 <Header players={this.props.players}/>

@@ -15,10 +15,8 @@ const Header = (props) => {
             <Nav.Link href="/new-player">New Player</Nav.Link>
             <NavDropdown title="Choose a Player" id="basic-nav-dropdown">
                 {props.players.map(player => {
-                    return <NavDropdown.Item href={`/${player.attributes.name}`}>{player.attributes.name}</NavDropdown.Item>
+                    return <NavDropdown.Item href={`/players/${player.attributes.name}`}>{player.attributes.name}</NavDropdown.Item>
                 })} 
-                {/* <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item> */}
             </NavDropdown>
             </Nav>
         </Navbar.Collapse>
