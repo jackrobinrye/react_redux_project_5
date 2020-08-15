@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-// import './App.css';
+import '../App.css';
 import Home from './Home';
 import NewPlayer from './NewPlayer';
 import CharacterPage from './CharacterPage';
@@ -28,7 +28,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="App">
 
           
           <Route exact path="/" render={() => <Home />} />

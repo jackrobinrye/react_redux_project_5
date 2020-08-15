@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import Table from 'react-bootstrap/Table'
 import Carousel from 'react-bootstrap/Carousel'
 import CharacterBrief from '../components/CharacterBrief';
+import AddCharacterButton from '../components/AddCharacterButton';
 import Header from '../components/Header';
-import Tabs from 'react-bootstrap/Tabs'
-import Tab from 'react-bootstrap/Tab'
 import { connect } from 'react-redux';
 import {fetchPlayers, fetchPlayer} from '../service/ApiCalls'
 
@@ -15,46 +14,56 @@ class PlayerPage extends Component {
     constructor(props) {
         super(props)
     }
-
+    
     componentDidMount = () => {
         this.props.fetchPlayers()
         this.props.fetchPlayer(this.props.match.params.playerId)
-        // console.log(this.props)
     }
     
     render() {
-        return <div>
+        console.log(this.props)
+        const date = new Date(this.props.player.created_at)
+        return <div style={{color: "#ffffff", backgroundColor: "#061226"}}>
             <Header players={this.props.players}/>
             <div style={{padding: "25px"}} >
-                <Carousel>
+                <h1>{this.props.player.name}</h1>
+                <Carousel interval={null}>
                     <Carousel.Item>
-                    {console.log(this.props)}
-                        {/* <h1>{this.props.data.attributes.name}</h1> */}
-                        <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </Carousel.Caption>
+                        <Table striped bordered variant="dark">
+                            <thead>
+                                <tr>
+                                    <th>Age</th>
+                                    <th>Gender</th>
+                                    <th>Joined on</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{this.props.player.age}</td>
+                                    <td>{this.props.player.gender}</td>
+                                    <td>{date.getMonth()}/{date.getDay()}/{date.getFullYear()}</td>
+                                </tr>
+                            </tbody>
+                        </Table>
                     </Carousel.Item>
-                    <Carousel.Item>
-                        <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                    {this.props.player.characters.map(character => 
+                        <Carousel.Item>
+                        <CharacterBrief data={character} />
+                        </Carousel.Item>
+                    
+                    )}
                     </Carousel>
+                    < AddCharacterButton />
             </div>
         </div>
     }
 }
 
 const mapStateToProps = state => {
-    return {players: state.players}
+    return {
+        players: state.players,
+        player: state.player
+    }
 }
 
 const mapDispatchToProps = dispatch => {

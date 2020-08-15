@@ -3,8 +3,6 @@ import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Nav from 'react-bootstrap/Nav'
  
-
-// GET HEADER TO WORK OUTSIDE OF HOME PAGE
 const Header = (props) => {
     return <Navbar bg="light" expand="lg">
         <Navbar.Brand href="/">Random Character Generator</Navbar.Brand>
@@ -15,7 +13,7 @@ const Header = (props) => {
             <Nav.Link href="/new-player">New Player</Nav.Link>
             <NavDropdown title="Choose a Player" id="basic-nav-dropdown">
                 {props.players.map(player => {
-                    return <NavDropdown.Item href={`/players/${player.attributes.name}`}>{player.attributes.name}</NavDropdown.Item>
+                    return <NavDropdown.Item href={`/players/${player.id}`}>{player.attributes.name}</NavDropdown.Item>
                 })} 
             </NavDropdown>
             </Nav>

@@ -1,4 +1,4 @@
-export default function reducer(state = {players: [], character: {}}, action) {
+export default function reducer(state = {players: [], character: {}, player: {characters: []}}, action) {
     switch (action.type) {
   
       case 'GET_CHARACTER':
@@ -8,7 +8,7 @@ export default function reducer(state = {players: [], character: {}}, action) {
   
       case 'GET_PLAYER':
         return {
-          ...state, player: action.attributes
+          ...state, player: action.player.attributes 
         }
   
       case 'UPDATE_PLAYERS':
