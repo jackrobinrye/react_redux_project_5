@@ -1,16 +1,14 @@
 import React from 'react';
-import ListGroup from 'react-bootstrap/ListGroup'
 import CharacterBrief from './CharacterBrief'
-import Character from './Character'
-import AddCharacterButton from './AddCharacterButton'
+import { Link } from 'react-router-dom';
 
 const Player = (props) => {
+    const attributes = props.data.attributes
     return (
-        <ListGroup.Item player-name={props.data.name} player-id={props.data.id}>
-            <h4>{props.data.name} ({props.data.age}, {props.data.gender})</h4>
-            {props.data.characters.map(character => <CharacterBrief data={character} />)}
-            < AddCharacterButton />
-        </ListGroup.Item>
+        <div>
+            <h4><Link to={`/players/${props.data.id}`} style={{color: "#000000"}}>{attributes.name} ({attributes.age}, {attributes.gender})</Link></h4>
+            {attributes.characters.map(character => <CharacterBrief data={character} />)}
+        </div>
     )
 }
 

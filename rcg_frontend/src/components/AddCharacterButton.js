@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
 import Button from 'react-bootstrap/Button';
 import {createCharacter} from '../service/ApiCalls';
-import { connect } from 'react-redux';
 import Form from 'react-bootstrap/Form'
 
 
 
-class AddCharacterButton extends Component {
+export default class AddCharacterButton extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             showForm: false,
             campaign: ""
@@ -28,9 +27,14 @@ class AddCharacterButton extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const playerName = e.target.parentElement.parentElement.getAttribute('player-name')
+        console.log(this.props)
         this.props.createCharacter(playerName, this.state.campaign)
         this.setState({...this.state, showForm: false})
     }
+
+    componentDidMount = () => {
+    }
+
 
     render() {
         if (this.state.showForm === false) {
@@ -48,16 +52,3 @@ class AddCharacterButton extends Component {
         }
     }
 }
-
-const mapStateToProps = state => {
-    return {}
-  }
-   
-const mapDispatchToProps = dispatch => {
-    return {
-        createCharacter: (playerName, campaign) => dispatch(createCharacter(playerName, campaign))
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddCharacterButton)
-

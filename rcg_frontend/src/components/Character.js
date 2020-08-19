@@ -33,62 +33,9 @@ const Character = (props) => {
                         </tbody>
                     </Table>
                 </Tab>
-                <Tab eventKey="info" title="Info">
-                    <CharacterBrief data={d}/>
-                </Tab>
             </Tabs>
-
-
-
-
-
-        
-            {/* <Header />
-            <Carousel hover={true} interval={null}>
-                <Carousel.Item >
-                    <CharacterBrief data={d}/> */}
-                    {/* <Carousel.Caption> */}
-                    {/* <h3>Character Gist</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
-                    {/* </Carousel.Caption> */}
-                {/* </Carousel.Item>
-                <Carousel.Item>
-                    
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                    className="d-block w-100"
-                    src="holder.js/800x400?text=Third slide&bg=20232a"
-                    alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel> */}
         </div>
     )
-
-
-
-
-
-
-
-
-
-        //             <tr>
-        //                 <td>Background: {d.background}</td>
-        //                 <td>Gender: {d.gender}</td>
-        //                 <td>Age: {d.age}</td>
-        //             </tr>
-
-        // <div className={props.data.name}>
-            
-        // </div>
-    // ) 
 }
 
 export default Character;

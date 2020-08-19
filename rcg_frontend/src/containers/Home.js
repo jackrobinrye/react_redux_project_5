@@ -3,7 +3,8 @@ import Header from '../components/Header';
 import ListGroup from 'react-bootstrap/ListGroup'
 import Player from '../components/Player';
 import { connect } from 'react-redux';
-import {fetchPlayers} from '../service/ApiCalls'
+import {fetchPlayers, createCharacter} from '../service/ApiCalls'
+import AddCharacterButton from '../components/AddCharacterButton';
 
 
 
@@ -22,7 +23,12 @@ class Home extends Component {
             return <div className="home-page">
                 <Header players={this.props.players}/>
                 <ListGroup variant="flush">
-                    {this.props.players.map(player => (<Player data={player.attributes} />))}
+                    {this.props.players.map(player => (
+                        <ListGroup.Item>
+                            <Player data={player} />
+                            < AddCharacterButton createCharacter={this.props.createCharacter} />
+                        </ListGroup.Item>
+                        ))}
                 </ListGroup>
             </div>
         }
@@ -38,7 +44,8 @@ const mapStateToProps = state => {
    
   const mapDispatchToProps = dispatch => {
     return {
-      fetchPlayers: () => dispatch(fetchPlayers())
+      fetchPlayers: () => dispatch(fetchPlayers()),
+      createCharacter: (playerName, campaign) => dispatch(createCharacter(playerName, campaign))
     }
   }
 

@@ -1,5 +1,7 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table'
+import { Link } from 'react-router-dom';
+
 
 
 const CharacterBrief = (props) => {
@@ -9,22 +11,24 @@ const CharacterBrief = (props) => {
 
     return (
         <div character-id={props.data.id} character-name={props.data.name}>
-            <Table striped bordered variant="dark">
-                <thead>
-                    <tr>
-                        <th>Name: {d.name}</th>
-                        <th>Campaign: {d.campaign}</th>
-                        <th>Created on: {date.getMonth()}/{date.getDay()}/{date.getFullYear()}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Race: {d.race}</td>
-                        <td>Class: {d.cclass}</td>
-                        <td>Alignment: {d.alignment}</td>
-                    </tr>
-                </tbody>
-            </Table>
+            <Link to={`/characters/${props.data.id}`} style={{color: "#000000", textDecoration: "none"}}>
+                <Table striped bordered variant="dark">
+                    <thead>
+                        <tr>
+                            <th>Name: {d.name}</th>
+                            <th>Campaign: {d.campaign}</th>
+                            <th>Created on: {date.getMonth()}/{date.getDay()}/{date.getFullYear()}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Race: {d.race}</td>
+                            <td>Class: {d.cclass}</td>
+                            <td>Alignment: {d.alignment}</td>
+                        </tr>
+                    </tbody>
+                </Table>
+            </Link>
         </div>
     ) 
 }

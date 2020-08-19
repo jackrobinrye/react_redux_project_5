@@ -5,7 +5,7 @@ import CharacterBrief from '../components/CharacterBrief';
 import AddCharacterButton from '../components/AddCharacterButton';
 import Header from '../components/Header';
 import { connect } from 'react-redux';
-import {fetchPlayers, fetchPlayer} from '../service/ApiCalls'
+import {fetchPlayers, fetchPlayer, createCharacter} from '../service/ApiCalls'
 
 
 
@@ -21,7 +21,7 @@ class PlayerPage extends Component {
     }
     
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         const date = new Date(this.props.player.created_at)
         return <div style={{color: "#ffffff", backgroundColor: "#061226"}}>
             <Header players={this.props.players}/>
@@ -53,7 +53,7 @@ class PlayerPage extends Component {
                     
                     )}
                     </Carousel>
-                    < AddCharacterButton />
+                    < AddCharacterButton createCharacter={this.props.createCharacter} />
             </div>
         </div>
     }
@@ -70,6 +70,7 @@ const mapDispatchToProps = dispatch => {
     return {
       fetchPlayers: () => dispatch(fetchPlayers()),
       fetchPlayer: (playerId) => dispatch(fetchPlayer(playerId)),
+      createCharacter: (playerName, campaign) => dispatch(createCharacter(playerName, campaign))
     }
 }
    
