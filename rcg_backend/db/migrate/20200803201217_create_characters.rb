@@ -8,7 +8,7 @@ class CreateCharacters < ActiveRecord::Migration[6.0]
       t.string :gender
       t.string :race
       t.string :cclass
-      t.string :background
+      t.integer :background_id
       t.string :alignment
       t.integer :strength
       t.integer :dexterity

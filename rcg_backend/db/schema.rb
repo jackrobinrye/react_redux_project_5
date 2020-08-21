@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_03_201217) do
+ActiveRecord::Schema.define(version: 2020_08_19_191100) do
+
+  create_table "backgrounds", force: :cascade do |t|
+    t.string "background_title"
+    t.string "personality_trait"
+    t.string "ideal"
+    t.string "bond"
+    t.string "flaw"
+    t.string "alignment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "characters", force: :cascade do |t|
     t.integer "player_id"
@@ -20,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_201217) do
     t.string "gender"
     t.string "race"
     t.string "cclass"
-    t.string "background"
+    t.integer "background_id"
     t.string "alignment"
     t.integer "strength"
     t.integer "dexterity"
