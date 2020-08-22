@@ -13,12 +13,13 @@
 ActiveRecord::Schema.define(version: 2020_08_19_191100) do
 
   create_table "backgrounds", force: :cascade do |t|
+    t.integer "character_id"
     t.string "background_title"
     t.string "personality_trait"
     t.string "ideal"
+    t.string "alignment"
     t.string "bond"
     t.string "flaw"
-    t.string "alignment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -31,7 +32,6 @@ ActiveRecord::Schema.define(version: 2020_08_19_191100) do
     t.string "gender"
     t.string "race"
     t.string "cclass"
-    t.integer "background_id"
     t.string "alignment"
     t.integer "strength"
     t.integer "dexterity"
