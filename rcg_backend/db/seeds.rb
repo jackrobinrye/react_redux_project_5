@@ -7,27 +7,28 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 rng = RandomNameGenerator.new
+campaigns = ["Princes Of The Apocalypse", "Lost Mine Of Phandelver", "Tyranny Of Dragons", "Tales From The Yawning Portal", "The Rod Of Seven Parts", "Temple Of Elemental Evil", "Tomb Of Annihilation", "Out Of The Abyss"]
 
 jack = Player.create(name: "Jack", age: 25, gender: "Agender")
 michelle = Player.create(name: "Michelle", age: 25, gender: "Female")
 becca = Player.create(name: "Becca", age: 23, gender: "Non-binary")
 paul = Player.create(name: "Paul", age: 23, gender: "Agender")
-grace = Player.create(name: "Grace", age: 23, gender: "Female")
+devon = Player.create(name: "Devon", age: 25, gender: "Non-binary")
 
 2.times {
-    Character.make_new(jack.id).save
+    Character.make_new_character(jack.id, campaigns.sample).save
 }
 2.times {
-    Character.make_new(michelle.id).save
+    Character.make_new_character(michelle.id, campaigns.sample).save
 }
 2.times {
-    Character.make_new(becca.id).save
+    Character.make_new_character(becca.id, campaigns.sample).save
 }
 2.times {
-    Character.make_new(paul.id).save
+    Character.make_new_character(paul.id, campaigns.sample).save
 }
 2.times {
-    Character.make_new(grace.id).save
+    Character.make_new_character(devon.id, campaigns.sample).save
 }
 
 
