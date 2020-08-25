@@ -22,10 +22,10 @@ class PlayerPage extends Component {
     
     render() {
         const date = new Date(this.props.player.created_at)
-        return <div style={{color: "#ffffff", backgroundColor: "#061226"}}>
+        return <div>
             <Header players={this.props.players}/>
             <div style={{padding: "25px"}} >
-                <h1>{this.props.player.name}</h1>
+                <h1 style={{color:"#ffffff"}}>{this.props.player.name}</h1>
                 <Carousel interval={null}>
                     <Carousel.Item>
                         <Table striped bordered variant="dark">

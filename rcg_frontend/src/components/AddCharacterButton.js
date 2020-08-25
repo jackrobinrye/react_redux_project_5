@@ -26,7 +26,7 @@ export default class AddCharacterButton extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        const playerName = e.target.parentElement.parentElement.getAttribute('player-name')
+        const playerName = e.target.parentElement.parentElement.firstChild.getAttribute('player-name')
         this.props.createCharacter(playerName, this.state.campaign)
         this.setState({...this.state, showForm: false})
     }

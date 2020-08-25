@@ -1,4 +1,4 @@
-export default function reducer(state = {players: [], character: {}, player: {characters: []}}, action) {
+export default function reducer(state = {players: [], character: {background:{}}, player: {characters: []}}, action) {
     switch (action.type) {
   
       case 'GET_CHARACTER':

@@ -26,7 +26,7 @@ class Home extends Component {
                     {this.props.players.map(player => (
                         <ListGroup.Item>
                             <Player data={player} />
-                            < AddCharacterButton createCharacter={this.props.createCharacter} />
+                            <AddCharacterButton createCharacter={this.props.createCharacter} />
                         </ListGroup.Item>
                         ))}
                 </ListGroup>
