@@ -68,8 +68,7 @@ class NewPlayer extends Component {
                         <Form.Row>
                             <Form.Label column="md" lg={1}>Gender: </Form.Label>
                             <Col>
-                                {/* GET DEFAULT VALUE TO WORK */}
-                                <Form.Control as="select" defaultValue="Choose..." onChange={this.genderChange} >
+                                <Form.Control as="select" onChange={this.genderChange} >
                                     <option>Choose...</option>
                                     <option>Female</option>
                                     <option>Male</option>

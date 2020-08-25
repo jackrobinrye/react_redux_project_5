@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Button from 'react-bootstrap/Button';
-import {createCharacter} from '../service/ApiCalls';
 import Form from 'react-bootstrap/Form'
 
 
@@ -30,10 +29,6 @@ export default class AddCharacterButton extends Component {
         this.props.createCharacter(playerName, this.state.campaign)
         this.setState({...this.state, showForm: false})
     }
-
-    componentDidMount = () => {
-    }
-
 
     render() {
         if (this.state.showForm === false) {

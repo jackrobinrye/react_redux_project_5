@@ -34,15 +34,6 @@ class App extends Component {
 
             <Route exact path="/" render={() => <Home />} />
             <Route exact path="/new-player" render={() => <NewPlayer />} />
-            {/* {this.state.characters.map(character => {
-              {console.log("I'm here, but sooner!")}
-              return <Route exact path={`/characters/${character.id}`} component={() => {
-                {console.log("I'm here!")}
-                return <CharacterPage characterId={character.id} />
-              } 
-              // CharacterPage(characterId: character.id)}
-              // render={() => <CharacterPage characterId={character.id} />} />
-            }></Route>})} */}
             <Route exact path='/characters/:characterId' component={CharacterPage} />
             <Route exact path={`/players/:playerId`} component={PlayerPage} />
           </div>

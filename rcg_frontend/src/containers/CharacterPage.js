@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Table from 'react-bootstrap/Table'
 import Background from '../components/Background'
+import Stats from '../components/Stats'
 import CharacterBrief from '../components/CharacterBrief';
 import Header from '../components/Header';
 import Tabs from 'react-bootstrap/Tabs'
@@ -28,20 +28,7 @@ class CharacterPage extends Component {
                         <CharacterBrief data={d}/>
                     </Tab>
                     <Tab eventKey="stats" title="Stats">
-                        <Table striped bordered variant="dark">
-                            <tbody>
-                                <tr>
-                                    <td>Strength: {d.strength}</td>
-                                    <td>Dexterity: {d.dexterity}</td>
-                                    <td>Constitution: {d.constitution}</td>
-                                </tr>
-                                <tr>
-                                    <td>Intelligence: {d.intelligence}</td>
-                                    <td>Wisdom: {d.wisdom}</td>
-                                    <td>Charisma: {d.charisma}</td>
-                                </tr>
-                            </tbody>
-                        </Table>
+                        <Stats stats={d} />
                     </Tab>
                     <Tab eventKey="background" title="Background">
                         <Background backgroundInfo={d.background}/>
