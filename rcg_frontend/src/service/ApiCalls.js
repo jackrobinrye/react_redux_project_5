@@ -16,7 +16,6 @@ export const fetchPlayer = (playerId) => {
         fetch(`http://localhost:3000/api/v1/players/${playerId}`)
             .then(response => response.json())
             .then(player => {
-                // console.log(player.data)
                 dispatch({type: "GET_PLAYER", player: player.data})
             })
     }
@@ -26,8 +25,9 @@ export const fetchCharacter = (characterId) => {
     return (dispatch) => {
         fetch(`http://localhost:3000/api/v1/characters/${characterId}`)
             .then(response => response.json())
-            .then(character => 
-                dispatch({type: "GET_CHARACTER", character: character})
+            .then(character => {
+                dispatch({type: "GET_CHARACTER", character: character.data})
+            }
                 )
     }
 }

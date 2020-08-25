@@ -22,7 +22,8 @@ class App extends Component {
     fetch('http://localhost:3000/api/v1/characters')
         .then(response => response.json())
         .then(characters => 
-          this.setState({...this.state, characters: characters}))
+          this.setState({...this.state, characters: characters.data})
+          )
   }
 
   render() {

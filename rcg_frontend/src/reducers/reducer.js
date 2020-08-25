@@ -3,7 +3,7 @@ export default function reducer(state = {players: [], character: {}, player: {ch
   
       case 'GET_CHARACTER':
         return {
-          ...state, character: action.character
+          ...state, character: action.character.attributes
         }
   
       case 'GET_PLAYER':

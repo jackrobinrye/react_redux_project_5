@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Table from 'react-bootstrap/Table'
-import Carousel from 'react-bootstrap/Carousel'
+import ListGroup from 'react-bootstrap/ListGroup'
 import CharacterBrief from '../components/CharacterBrief';
 import Header from '../components/Header';
 import Tabs from 'react-bootstrap/Tabs'
@@ -18,8 +18,8 @@ class CharacterPage extends Component {
     }
     
     render() {
+        const d = this.props.character
         if (this.props.players !== undefined && this.props.players !== null && this.props.players.length !== null && this.props.players.length > 0 ) {
-            const d = this.props.character
             return <div>    
                 <Header players={this.props.players}/>
                 <Tabs defaultActiveKey="summary" id="uncontrolled-tab-example">
@@ -42,8 +42,14 @@ class CharacterPage extends Component {
                             </tbody>
                         </Table>
                     </Tab>
-                    <Tab eventKey="info" title="Info">
-                        <CharacterBrief data={d}/>
+                    <Tab eventKey="background" title="Background">
+                        <ListGroup>
+                            <ListGroup.Item><h5>Background: {d.background.background_title}</h5></ListGroup.Item>
+                            <ListGroup.Item>Personality Trait: {d.background.personality_trait}</ListGroup.Item>
+                            <ListGroup.Item>Ideal: {d.background.ideal}</ListGroup.Item>
+                            <ListGroup.Item>Bond: {d.background.bond}</ListGroup.Item>
+                            <ListGroup.Item>Flaw: {d.background.flaw}</ListGroup.Item>
+                        </ListGroup>
                     </Tab>
                 </Tabs>
             </div>

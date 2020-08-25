@@ -21,7 +21,6 @@ class PlayerPage extends Component {
     }
     
     render() {
-        // console.log(this.props)
         const date = new Date(this.props.player.created_at)
         return <div style={{color: "#ffffff", backgroundColor: "#061226"}}>
             <Header players={this.props.players}/>
