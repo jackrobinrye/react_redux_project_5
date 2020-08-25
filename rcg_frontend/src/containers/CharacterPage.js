@@ -13,7 +13,6 @@ import { withRouter } from "react-router";
 class CharacterPage extends Component {
 
     componentDidMount = () => {
-        console.log("I'm running")
         this.props.fetchPlayers()
         this.props.fetchCharacter(this.props.match.params.characterId)
     }

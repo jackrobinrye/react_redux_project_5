@@ -36,7 +36,11 @@ class NewPlayer extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        if(this.state.name !== "" && this.state.age !== "" && this.state.gender !== "Choose...") {
+        console.log("gender is", this.state.gender)
+        if(this.state.gender === "Choose..." || this.state.gender === "") {
+            alert("Please pick a gender!")
+        }
+        else if(this.state.name !== "" && this.state.age !== "") {
             this.props.createPlayer(this.state.name, this.state.age, this.state.gender)
         }
       }
@@ -48,27 +52,27 @@ class NewPlayer extends Component {
                 <Form style={{padding: "25px"}} onSubmit={this.handleSubmit}>
                     <Form.Group>
                         <Form.Row>
-                            <Form.Label column="lg" lg={1}>
+                            <Form.Label style={{color:"#ffffff"}} column="lg" lg={1}>
                                 Name:
                             </Form.Label>
                             <Col>
-                                <Form.Control size="lg" type="text" placeholder="Your Name" value={this.state.name} onChange={this.nameChange} />
+                                <Form.Control required size="lg" type="text" placeholder="Your Name" value={this.state.name} onChange={this.nameChange} />
                             </Col>
                         </Form.Row>
                         <br />
                         <Form.Row>
-                            <Form.Label column size="md" lg={1}>
+                            <Form.Label style={{color:"#ffffff"}} column size="md" lg={1}>
                                 Age: 
                             </Form.Label>
                             <Col>
-                                <Form.Control type="number" placeholder="Age" value={this.state.age} onChange={this.ageChange} />
+                                <Form.Control required type="number" placeholder="Age" value={this.state.age} onChange={this.ageChange} />
                             </Col>
                         </Form.Row>
                         <br />
                         <Form.Row>
-                            <Form.Label column="md" lg={1}>Gender: </Form.Label>
+                            <Form.Label style={{color:"#ffffff"}} column="md" lg={1}>Gender: </Form.Label>
                             <Col>
-                                <Form.Control as="select" onChange={this.genderChange} >
+                                <Form.Control required as="select" defaultValue="Choose..." onChange={this.genderChange} >
                                     <option>Choose...</option>
                                     <option>Female</option>
                                     <option>Male</option>
