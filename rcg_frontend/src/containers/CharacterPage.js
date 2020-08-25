@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Table from 'react-bootstrap/Table'
-import ListGroup from 'react-bootstrap/ListGroup'
+import Background from '../components/Background'
 import CharacterBrief from '../components/CharacterBrief';
 import Header from '../components/Header';
 import Tabs from 'react-bootstrap/Tabs'
@@ -44,13 +44,7 @@ class CharacterPage extends Component {
                         </Table>
                     </Tab>
                     <Tab eventKey="background" title="Background">
-                        <ListGroup>
-                            <ListGroup.Item><h5>Background: {d.background.background_title}</h5></ListGroup.Item>
-                            <ListGroup.Item>Personality Trait: {d.background.personality_trait}</ListGroup.Item>
-                            <ListGroup.Item>Ideal: {d.background.ideal}</ListGroup.Item>
-                            <ListGroup.Item>Bond: {d.background.bond}</ListGroup.Item>
-                            <ListGroup.Item>Flaw: {d.background.flaw}</ListGroup.Item>
-                        </ListGroup>
+                        <Background backgroundInfo={d.background}/>
                     </Tab>
                 </Tabs>
             </div>

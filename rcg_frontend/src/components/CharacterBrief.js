@@ -14,9 +14,9 @@ const CharacterBrief = (props) => {
                 <Table striped bordered variant="dark">
                     <thead>
                         <tr>
-                            <th>{d.name}</th>
-                            <th>Campaign: {d.campaign}</th>
-                            <th>{d.alignment}</th>
+                            <th style={{width: "33vw"}}>{d.name}</th>
+                            <th style={{width: "33vw"}}>Campaign: {d.campaign}</th>
+                            <th style={{width: "33vw"}}>{d.alignment}</th>
                         </tr>
                     </thead>
                     <tbody>
