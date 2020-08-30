@@ -6,11 +6,11 @@ import reducer from './reducers/reducer'
 import * as serviceWorker from './serviceWorker'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Provider } from 'react-redux'
+//React Context API
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 
 const store = createStore(reducer, applyMiddleware(thunk))
-window.store = store
 
 ReactDOM.render(
   <React.StrictMode>

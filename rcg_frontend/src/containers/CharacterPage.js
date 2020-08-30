@@ -6,14 +6,13 @@ import Header from '../components/Header';
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import { connect } from 'react-redux';
-import {fetchPlayers, fetchCharacter} from '../service/ApiCalls'
+import {fetchCharacter} from '../service/ApiCalls'
 import { withRouter } from "react-router";
 
 
 class CharacterPage extends Component {
 
     componentDidMount = () => {
-        this.props.fetchPlayers()
         this.props.fetchCharacter(this.props.match.params.characterId)
     }
     
@@ -47,7 +46,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-      fetchPlayers: () => dispatch(fetchPlayers()),
       fetchCharacter: (characterId) => dispatch(fetchCharacter(characterId))
     }
 }

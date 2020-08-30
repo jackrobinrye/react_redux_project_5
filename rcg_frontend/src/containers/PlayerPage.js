@@ -5,7 +5,7 @@ import CharacterBrief from '../components/CharacterBrief';
 import AddCharacterButton from '../components/AddCharacterButton';
 import Header from '../components/Header';
 import { connect } from 'react-redux';
-import {fetchPlayers, fetchPlayer, createCharacter} from '../service/ApiCalls'
+import {fetchPlayer, createCharacter} from '../service/ApiCalls'
 
 
 
@@ -16,7 +16,6 @@ class PlayerPage extends Component {
     }
     
     componentDidMount = () => {
-        this.props.fetchPlayers()
         this.props.fetchPlayer(this.props.match.params.playerId)
     }
     
@@ -49,7 +48,6 @@ class PlayerPage extends Component {
                         <Carousel.Item>
                         <CharacterBrief data={character} />
                         </Carousel.Item>
-                    
                     )}
                     </Carousel>
                     < AddCharacterButton createCharacter={this.props.createCharacter} />
@@ -67,7 +65,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-      fetchPlayers: () => dispatch(fetchPlayers()),
       fetchPlayer: (playerId) => dispatch(fetchPlayer(playerId)),
       createCharacter: (playerName, campaign) => dispatch(createCharacter(playerName, campaign))
     }

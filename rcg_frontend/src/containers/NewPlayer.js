@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import { connect } from 'react-redux';
-import {fetchPlayers, createPlayer} from '../service/ApiCalls'
+import {createPlayer} from '../service/ApiCalls'
 
 
 
@@ -16,10 +16,6 @@ class NewPlayer extends Component {
             age: "",
             gender: ""
         }
-    }
-
-    componentDidMount = () => {
-        this.props.fetchPlayers()
     }
 
     nameChange = (e) => {
@@ -101,7 +97,6 @@ const mapStateToProps = state => {
    
 const mapDispatchToProps = dispatch => {
     return {
-        fetchPlayers: () => dispatch(fetchPlayers()),
         createPlayer: (name, age, gender) => dispatch(createPlayer(name, age, gender))
     }
 }

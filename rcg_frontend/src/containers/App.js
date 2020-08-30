@@ -8,6 +8,9 @@ import Home from './Home';
 import NewPlayer from './NewPlayer';
 import CharacterPage from './CharacterPage';
 import PlayerPage from './PlayerPage';
+import { connect } from 'react-redux';
+import {fetchPlayers} from '../service/ApiCalls'
+
 
 class App extends Component {
 
@@ -19,11 +22,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    fetch('http://localhost:3000/api/v1/characters')
-        .then(response => response.json())
-        .then(characters => 
-          this.setState({...this.state, characters: characters.data})
-          )
+    this.props.fetchPlayers()
   }
 
   render() {
@@ -31,18 +30,25 @@ class App extends Component {
       <Router>
         <div className="App">
           <div class="bg">
-
             <Route exact path="/" render={() => <Home />} />
             <Route exact path="/new-player" render={() => <NewPlayer />} />
             <Route exact path='/characters/:characterId' component={CharacterPage} />
             <Route exact path={`/players/:playerId`} component={PlayerPage} />
           </div>
-          
         </div>
       </Router>
     );
   }
 }
 
+const mapStateToProps = state => {
+  return {players: state.players}
+}
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchPlayers: () => dispatch(fetchPlayers())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
