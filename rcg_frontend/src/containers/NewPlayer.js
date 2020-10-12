@@ -32,7 +32,6 @@ class NewPlayer extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        console.log("gender is", this.state.gender)
         if(this.state.gender === "Choose..." || this.state.gender === "") {
             alert("Please pick a gender!")
         }

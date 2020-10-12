@@ -1,6 +1,7 @@
 export default function reducer (state = { players: [], character: { background: {} }, player: { characters: [] } }, action) {
   switch (action.type) {
     case 'GET_CHARACTER':
+      console.log(action)
       return {
         ...state, character: action.character.attributes
       }
